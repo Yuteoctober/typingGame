@@ -63,7 +63,7 @@ function App() {
 
 
 
-  function handleTextareaChange(e: React.ChangeEvent<HTMLTextAreaElement>) {
+  function handleTextareaChange(e) {
     const type = e.target.value;
     let correctText = ''
    
