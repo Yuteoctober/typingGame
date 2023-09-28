@@ -63,7 +63,7 @@ function App() {
 
 
 
-  function handleTextareaChange(e) {
+  function handleTextareaChange(e: React.ChangeEvent<HTMLTextAreaElement>) {
     const type = e.target.value;
     let correctText = ''
    
@@ -183,7 +183,7 @@ function App() {
           </div>
           <div  className="click_to_play" 
                 onClick={handleStart}
-                style={{pointerEvents: timeCount < 1 || start? 'none': ''}}>
+                style={{pointerEvents: timeCount < 1 || start? 'none': 'auto'}}>
            <BsController className='play_icon'/>
             <span>click to start playing...</span>
           </div>
