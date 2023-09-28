@@ -33,7 +33,7 @@ function App() {
 
 
   const fetchData = async () => {
-    const endpoint = 'http://api.quotable.io/random'
+    const endpoint = 'https://api.quotable.io/random'
 
     try {
       const response = await fetch(endpoint)
