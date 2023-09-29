@@ -307,19 +307,19 @@ function App() {
                 timerExecuted.current = false;
               }}
             />
-            <div className="score_one">
+            <div className={`score_one ${theme}`}>
               <span>
                 wmp / cpm <br />
                 {text.length} / {quote.length}
               </span>
             </div>
-            <div className="score_two">
+            <div className={`score_two ${theme}`}>
               <span>
                 error <br />
                 {incorrect}
               </span>
             </div>
-            <div className="score_three">
+            <div className={`score_three ${theme}`}>
               <span>
                 accuracy <br />
                 {Math.ceil(((text.length - incorrect) / text.length) * 100)} %
