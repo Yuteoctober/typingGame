@@ -341,7 +341,8 @@ function App() {
           </div>
         </div>
       )}
-      <div className="btm_part">
+      {!result && (
+        <div className="btm_part">
         <div className="left_btm">
           <a href="" className='github'><BsGithub/></a> 
           <a href="" className='facebook'><BsFacebook/></a>
@@ -352,7 +353,7 @@ function App() {
           <a href='https://yute-dev.netlify.app/'>Check out my Portfolio</a>
         </div>
       </div>
-      
+      )}
       </section>
     </>
   );
