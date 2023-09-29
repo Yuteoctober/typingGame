@@ -185,7 +185,7 @@ function App() {
           </div>
           {dropdown && (
             <>
-              <div className="dropdown_color">
+              <div className={`dropdown_color ${theme}`}>
             <div className={`dark_theme ${theme}`} onClick={() => {setTheme('dark'); setDropdown(false)}}>
               <span>Aurora</span>
               <div className="color_one_dark"></div>
