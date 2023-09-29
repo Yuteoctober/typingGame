@@ -12,6 +12,7 @@ import {
 
 
 
+
 function App() {
   const [quote, setQuote] = useState('')
   const [text, setText] = useState('')
@@ -24,13 +25,17 @@ function App() {
   const [timeCount, setTimeCount] = useState(0)
   const [timeLeft, setTimeLeft] = useState(0)
   const [incorrect, setIncorrect] = useState(0)
+  const [timeId, setTimeId] = useState()
+  const [theme, setTheme] = useState('grey')
+  const [dropdown, setDropdown] = useState(false)
+  const [about, setAbout] = useState(false)
+
 
   const timerExecuted = useRef(false)
 
   const formattedTime = timeLeft < 10? `0${timeLeft}` : timeLeft
 
-  const twitterURL = `https://twitter.com/intent/tweet?text=${quote}&hashtags=React,TwitterShare`;
-
+  const twitterURL = `https://twitter.com/intent/tweet?text=${quote}&hashtags=Yute,IloveU`;
 
   const fetchData = async () => {
     const endpoint = 'https://api.quotable.io/random'
@@ -71,7 +76,7 @@ function App() {
     if (!timerExecuted.current) {
       // Only execute the timer block once
       setTimeLeft(timeCount)
-      setTimeout(() => {
+      const timerId = setTimeout(() => {
         if (start) {
           setStart(false)
         }
@@ -80,6 +85,7 @@ function App() {
           setResult(true)
         }
       }, timer)
+      setTimeId(timerId)
       timerExecuted.current = true; // Set the ref to true to prevent future executions
     }
   
@@ -97,6 +103,8 @@ function App() {
   
     if (correctText.length === quote.length) {
       setResult(true)
+      clearTimeout(timeId)
+      console.log('hello timeout cancel')
       setStart(false)
       setTimeLeft(0)
       setTimer(0)
@@ -128,122 +136,212 @@ function App() {
 
   return (
     <>
-      <section>
-        <div className="container_top"> 
-          <div className="leftside"> 
-            <BsKeyboardFill className='keyboard' /> 
-            <span>
-              Type is Fun
-            </span>
-          </div>
-          <div className="rightside">
-            <div className="color_change">
-              <div className="color_one"></div>
-              <div className="color_two"></div>
-              <div className="color_three"></div>
-              <div className="arrow_down"><BsChevronDown/></div>
+      <section className={`section ${theme}`}>
+      {about && (
+        <>
+          <div className='blur'>
+            <div className={`about_text ${theme}`}>
+              <BsXCircleFill  className='exit_about' onClick={() => setAbout(false)} />
+              <h1>Type is Fun</h1>
+              <br />
+                <p> Type is fun is an interactive typing 
+                    practice app that enhances your skills 
+                    while offering an enjoyable user experience. 
+                </p>
+                <br /><br /><br />
+                <h1>Key features include:</h1>
+                <br />
+                <p>Random Quotes: Get inspired with fresh quotes from the "quotable.io" API.</p>
+                <br />
+                <p>Typing Challenge: Test your typing speed and accuracy by typing quotes quickly.</p>
+                <br />
+                <p>Timer Options: Choose from 10s, 15s, or 20s timers for added challenge.</p>
+                <br />
+                <p>Dynamic Themes: Personalize the app's look with themes like "Aurora" and "Cyberpace."</p>
+                <br />
+                <p>Responsive Design: Enjoy a seamless experience on desktops, tablets, and mobiles.</p>
+                <br />
+                <p>Result Analysis: View your typing speed, errors, and accuracy, plus share quotes on Twitter.</p>
+                <br />
+                <p>About Section: Access additional information with a click.</p>
             </div>
-            <BsFillQuestionCircleFill className='about_icon' />
           </div>
+        </>
+      )}
+      
+      <div className={`container_top ${theme}`}>
+        <div className={`leftside ${theme}`}>
+          <BsKeyboardFill className={`keyboard ${theme}`} />
+          <span>Type is Fun</span>
         </div>
-            <div className="container_mid">
-            <div className='timer_icon'><BsClock/></div>
-            <div className="timer">
-              <span style={styleone ? { backgroundColor: 'rgba(255, 255, 255, 0.534)' } : {}} 
-                    className='timer_one'
-                     onClick={() => 
-                      {setStyleone(true); 
-                      setStyletwo(false); 
-                      setStylethree(false); 
-                      setTimer(10000)
-                      setTimeCount(10)}}>10s
-              </span>
-              <span style={styletwo ? { backgroundColor: 'rgba(255, 255, 255, 0.534)' } : {}} 
-                    className='timer_two' 
-                    onClick={() => 
-                    {setStyleone(false); 
-                    setStyletwo(true);
-                    setStylethree(false);
-                    setTimer(15000)
-                    setTimeCount(15)}}>15s
-              </span>
-              <span style={stylethree ? { backgroundColor: 'rgba(255, 255, 255, 0.534)' } : {}}
-                    className='timer_three' 
-                    onClick={() => 
-                    {setStyleone(false); 
-                    setStyletwo(false); 
-                    setStylethree(true); 
-                    setTimer(20000)
-                    setTimeCount(20)}}>20s
-              </span>
+        <div className="rightside">
+          <div className={`color_change ${theme}`}>
+            <div className={`color_one ${theme}`}></div>
+            <div className={`color_two ${theme}`}></div>
+            <div className={`color_three ${theme}`}></div>
+            <div className={`arrow_down ${theme}`}>
+              <BsChevronDown onClick={() => setDropdown(!dropdown)} />
             </div>
           </div>
-          <div className="time_count">
-            <span>Time left: 00:{formattedTime}</span>
+          {dropdown && (
+            <>
+              <div className="dropdown_color">
+            <div className={`dark_theme ${theme}`} onClick={() => {setTheme('dark'); setDropdown(false)}}>
+              <span>Aurora</span>
+              <div className="color_one_dark"></div>
+              <div className="color_two_dark"></div>
+              <div className="color_three_dark"></div>
+            </div>
+            <div className={`purple_theme ${theme}`} onClick={() => {setTheme('purple'); setDropdown(false)}}>
+              <span>Cyberpace</span>
+              <div className="color_one_purple"></div>
+              <div className="color_two_purple"></div>
+              <div className="color_three_purple"></div>
+            </div>
+            <div className={`pink_theme ${theme}`} onClick={() => {setTheme('pink'); setDropdown(false)}}>
+              <span>Cake</span>
+              <div className="color_one_pink"></div>
+              <div className="color_two_pink"></div>
+              <div className="color_three_pink"></div>
+            </div>
+            <div className={`grey_theme ${theme}`} onClick={() => {setTheme('grey');setDropdown(false)}}>
+              <span>Paper</span>
+              <div className="color_one_grey"></div>
+              <div className="color_two_grey"></div>
+              <div className="color_three_grey"></div>
+            </div>
           </div>
-          <div  className="click_to_play" 
-                onClick={handleStart}
-                style={{pointerEvents: timeCount < 1 || start? 'none': 'auto'}}>
-           <BsController className='play_icon'/>
-            <span>click to start playing...</span>
-          </div>
-          {start && 
-          (
+            </>
+          )}
+          
+          <BsFillQuestionCircleFill className="about_icon" onClick={() => setAbout(true)} />
+          
+        </div>
+      </div>
+      <div className="container_mid">
+        <div className={`timer_icon ${theme}`}>
+          <BsClock />
+        </div>
+        <div className={`timer ${theme}`}>
+          <span
+            style={styleone ? { backgroundColor: 'rgba(255, 255, 255, 0.534)' } : {}}
+            className={`timer_one ${theme}`}
+            onClick={() => {
+              setStyleone(true);
+              setStyletwo(false);
+              setStylethree(false);
+              setTimer(10000);
+              setTimeCount(10);
+            }}
+          >
+            10s
+          </span>
+          <span
+            style={styletwo ? { backgroundColor: 'rgba(255, 255, 255, 0.534)' } : {}}
+            className={`timer_two ${theme}`}
+            onClick={() => {
+              setStyleone(false);
+              setStyletwo(true);
+              setStylethree(false);
+              setTimer(15000);
+              setTimeCount(15);
+            }}
+          >
+            15s
+          </span>
+          <span
+            style={stylethree ? { backgroundColor: 'rgba(255, 255, 255, 0.534)' } : {}}
+            className={`timer_three ${theme}`}
+            onClick={() => {
+              setStyleone(false);
+              setStyletwo(false);
+              setStylethree(true);
+              setTimer(20000);
+              setTimeCount(20);
+            }}
+          >
+            20s
+          </span>
+        </div>
+      </div>
+      <div className={`time_count ${theme}`}>
+        <span>Time left: 00:{formattedTime}</span>
+      </div>
+      
+        {!result && (
           <>
-            <div>
-          <textarea 
-           className="main_game" 
-            value={text}
-            onChange={handleTextareaChange}> 
-          </textarea>
-          <textarea 
-           className="main_game_two" 
-            placeholder={quote}>
-          </textarea>
-        </div>
+            <div
+              className={`click_to_play ${theme}`}
+              onClick={handleStart}
+              style={{
+              pointerEvents: !start && (styleone || styletwo || stylethree) ? 'auto' : 'none',
+              color: !start && (styleone || styletwo || stylethree) ? 'white' : 'rgba(128, 128, 128, 0.9)',}}>
+              <BsController className={`play_icon ${theme}`} />
+              <span>click to start playing...</span>
+            </div>
           </>
         )}
-        {result && (
-        <div className='result_container'>
-            <div className="result">
-              <BsXCircleFill 
-                    className='close_result'
-                    onClick={() => {setResult(false); 
-                    setText('');
-                    timerExecuted.current = false
-                  }}
-                  />
-              <div className="score_one">
-                <span>
-                  wmp / cpm <br />
-                  {text.length} / {quote.length}
-                </span>
-              </div>
-              <div className="score_two">
-                <span>
-                  error <br />
-                  {incorrect}
-                </span>
-                </div>
-              <div className="score_three">
-                <span>
-                  accuracy <br />
-                  {Math.ceil( (text.length - incorrect)/text.length *100)} %
-                </span>
-              </div>
-              <p>Copy this awesome quote 
-                <BsStickiesFill 
-                className='copy_result'
-                onClick={() => {navigator.clipboard.writeText(quote)}} 
-                />
-                </p>
-              <h4>{quote}</h4>
-              <a href={twitterURL} target="_blank" rel="noopener noreferrer">
-                Share with your friends on twitter <BsTwitter className='twitter_icon' />
-              </a>
+        
+      {start && (
+        <>
+          <div>
+            <textarea
+              className={`main_game ${theme}`}
+              value={text}
+              onChange={handleTextareaChange}
+            ></textarea>
+            <textarea className={`main_game_two ${theme}`} placeholder={quote}></textarea>
+          </div>
+        </>
+      )}
+      {result && (
+        <div className={`result_container ${theme}`}>
+          <div className={`result ${theme}`}>
+            <BsXCircleFill
+              className={`close_result ${theme}`}
+              onClick={() => {
+                setResult(false);
+                setText('');
+                setStyleone(false);
+                setStyletwo(false);
+                setStylethree(false);
+                timerExecuted.current = false;
+              }}
+            />
+            <div className="score_one">
+              <span>
+                wmp / cpm <br />
+                {text.length} / {quote.length}
+              </span>
+            </div>
+            <div className="score_two">
+              <span>
+                error <br />
+                {incorrect}
+              </span>
+            </div>
+            <div className="score_three">
+              <span>
+                accuracy <br />
+                {Math.ceil(((text.length - incorrect) / text.length) * 100)} %
+              </span>
+            </div>
+            <p>
+              Copy this awesome quote
+              <BsStickiesFill
+                className={`copy_result ${theme}`}
+                onClick={() => {
+                  navigator.clipboard.writeText(quote);
+                }}
+              />
+            </p>
+            <h4>{quote}</h4>
+            <a href={twitterURL} target="_blank" rel="noopener noreferrer">
+              Share with your friends on twitter <BsTwitter className="twitter_icon" />
+            </a>
           </div>
         </div>
-        )}
+      )}
       </section>
     </>
   );
