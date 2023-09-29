@@ -143,26 +143,18 @@ function App() {
             <div className={`about_text ${theme}`}>
               <BsXCircleFill  className='exit_about' onClick={() => setAbout(false)} />
               <h1>Type is Fun</h1>
-              <br />
                 <p> Type is fun is an interactive typing 
                     practice app that enhances your skills 
                     while offering an enjoyable user experience. 
                 </p>
-                <br /><br /><br />
+                <br />
                 <h1>Key features include:</h1>
-                <br />
                 <p>Random Quotes: Get inspired with fresh quotes from the "quotable.io" API.</p>
-                <br />
                 <p>Typing Challenge: Test your typing speed and accuracy by typing quotes quickly.</p>
-                <br />
                 <p>Timer Options: Choose from 10s, 15s, or 20s timers for added challenge.</p>
-                <br />
                 <p>Dynamic Themes: Personalize the app's look with themes like "Aurora" and "Cyberpace."</p>
-                <br />
                 <p>Responsive Design: Enjoy a seamless experience on desktops, tablets, and mobiles.</p>
-                <br />
                 <p>Result Analysis: View your typing speed, errors, and accuracy, plus share quotes on Twitter.</p>
-                <br />
                 <p>About Section: Access additional information with a click.</p>
             </div>
           </div>
