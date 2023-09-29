@@ -446,10 +446,27 @@ html,body
 
 .about_icon {
   position: relative;
-  font-size: 23px;
+  font-size: 25px;
   margin-left: .8rem;
-  top: 1px;
+  top: 0px;
   cursor: pointer;
+}
+
+.about_icon_div::after {
+  display: none;
+  content: 'about';
+  position: absolute;
+  font-size: 16px;
+  background-color: rgb(120, 116, 116);
+  color: white;
+  padding: 2px 5px;
+  border-radius: .2rem;
+  bottom: -1.6rem;
+  left: 6.8rem;
+}
+
+.about_icon_div:hover::after {
+  display: block;
 }
 
 .container_mid {
@@ -887,4 +904,134 @@ textarea {
   color: rgb(81, 77, 77);
 }
 
+.btm_part {
+  display: flex;
+  position: absolute;
+  width: 100%;
+  height: 40px;
+  bottom: 0;
+  justify-content: space-between;
+  align-items: center;
+}
 
+.left_btm {
+  display: flex;
+  width: 150px;
+  position: relative;
+  justify-content: space-around;
+  left: 2rem;
+  bottom: 5px;
+}
+
+.github {
+  position: relative;
+  font-size: 25px;
+  color: rgb(147, 144, 144);
+  text-decoration: none;
+}
+.github::after {
+  display: none;
+  content: 'github';
+  position: absolute;
+  font-size: 16px;
+  background-color: rgb(120, 116, 116);
+  color: white;
+  padding: 2px 5px;
+  border-radius: .2rem;
+  bottom: 2.5rem;
+  left: -10px;
+}
+
+.github:hover::after {
+  display: block;
+}
+
+.facebook {
+  position: relative;
+  font-size: 25px;
+  color: rgb(147, 144, 144);
+  text-decoration: none;
+}
+
+.facebook::after {
+  display: none;
+  content: 'facebook';
+  position: absolute;
+  font-size: 16px;
+  background-color: rgb(120, 116, 116);
+  color: white;
+  padding: 2px 5px;
+  border-radius: .2rem;
+  bottom: 2.5rem;
+  left: -1.2rem;
+}
+
+.facebook:hover::after {
+  display: block;
+}
+
+.telegram {
+  position: relative;
+  font-size: 25px;
+  color: rgb(147, 144, 144);
+  text-decoration: none;
+}
+
+.telegram::after {
+  display: none;
+  content: 'telegram';
+  position: absolute;
+  font-size: 16px;
+  background-color: rgb(120, 116, 116);
+  color: white;
+  padding: 2px 5px;
+  border-radius: .2rem;
+  bottom: 2.5rem;
+  left: -1rem;
+}
+
+.telegram:hover::after {
+  display: block;
+}
+
+.right_btm {
+  position: relative;
+  display: flex;
+  width: 220px;
+  position: relative;
+  justify-content: space-evenly;
+  align-items: center;
+  right: 1rem;
+  bottom: 10px;
+}
+
+.port {
+  position: relative;
+  color: rgb(147, 144, 144);
+  font-size: 25px;
+}
+
+.right_btm a {
+  position: relative;
+  font-size: 17px;
+  color: rgb(147, 144, 144);
+  text-decoration: underline;
+}
+
+.right_btm a::after {
+  display: none;
+  content: 'send me some love 💜';
+  position: absolute;
+  font-size: 16px;
+  background-color: rgb(120, 116, 116);
+  color: white;
+  padding-top: 2px; padding-bottom: 3px;
+  padding-left: 4px;
+  border-radius: .2rem;
+  bottom: 1.8rem;
+  left: 0rem;
+}
+
+.right_btm a:hover::after {
+  display: block;
+}

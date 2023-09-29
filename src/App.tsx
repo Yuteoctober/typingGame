@@ -8,7 +8,11 @@ import {
   BsClock, 
   BsXCircleFill,
   BsTwitter,
-  BsStickiesFill } from "react-icons/bs";
+  BsStickiesFill,
+  BsGithub,
+  BsFacebook,
+  BsTelegram,
+  BsFillHouseHeartFill } from "react-icons/bs";
 
 
 
@@ -137,6 +141,7 @@ function App() {
   return (
     <>
       <section className={`section ${theme}`}>
+      
       {about && (
         <>
           <div className='blur'>
@@ -206,7 +211,9 @@ function App() {
             </>
           )}
           
-          <BsFillQuestionCircleFill className="about_icon" onClick={() => setAbout(true)} />
+          <div className="about_icon_div">
+            <BsFillQuestionCircleFill className="about_icon" onClick={() => setAbout(true)} />
+          </div>
           
         </div>
       </div>
@@ -334,6 +341,18 @@ function App() {
           </div>
         </div>
       )}
+      <div className="btm_part">
+        <div className="left_btm">
+          <a href="" className='github'><BsGithub/></a> 
+          <a href="" className='facebook'><BsFacebook/></a>
+          <a href="" className='telegram'><BsTelegram/></a>
+        </div>
+        <div className="right_btm">
+          <BsFillHouseHeartFill className='port'/>
+          <a href='https://yute-dev.netlify.app/'>Check out my Portfolio</a>
+        </div>
+      </div>
+      
       </section>
     </>
   );
