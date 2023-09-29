@@ -25,7 +25,7 @@ function App() {
   const [timeCount, setTimeCount] = useState(0)
   const [timeLeft, setTimeLeft] = useState(0)
   const [incorrect, setIncorrect] = useState(0)
-  const [timeId, setTimeId] = useState()
+  const [timeId, setTimeId] = useState<NodeJS.Timeout | undefined>();
   const [theme, setTheme] = useState('grey')
   const [dropdown, setDropdown] = useState(false)
   const [about, setAbout] = useState(false)
