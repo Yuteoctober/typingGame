@@ -162,7 +162,7 @@ section {
   word-break: break-all;
   max-width: 700px;
   width: 85%;
-  height: 22vh;
+  min-height: 22vh;
   top: 30rem;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -188,7 +188,7 @@ textarea {
   max-width: 700px;
   border: none;
   width: 85%;
-  height: 22vh;
+  min-height: 22vh;
   top: 30rem;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -203,7 +203,7 @@ textarea {
 .result_container {
   display: grid;
   position: relative;
-  height: 400px;
+  min-height: 400px;
   place-items: center;
   top: 10rem;
 
@@ -225,7 +225,7 @@ textarea {
   position: absolute;
   max-width: 610px;
   width: 80%;
-  height: 400px;
+  min-height: 400px;
   background-color: rgb(192, 191, 191);
   border-radius: 1rem;
   grid-template-columns: 1fr 1fr 1fr;
