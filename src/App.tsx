@@ -283,7 +283,7 @@ function App() {
         
       {start && (
         <>
-          <div>
+          <div className='main_game_container'>
             <textarea
               className={`main_game ${theme}`}
               value={text}
