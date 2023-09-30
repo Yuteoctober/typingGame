@@ -33,6 +33,7 @@ function App() {
   const [theme, setTheme] = useState('dark')
   const [dropdown, setDropdown] = useState(false)
   const [about, setAbout] = useState(false)
+  const [closeMedal, setCloseMedal] = useState(false)
 
 
   const timerExecuted = useRef(false)
@@ -143,8 +144,12 @@ function App() {
       <section className={`section ${theme}` }>
       {about && (
         <>
-          <div className='blur' onClick={() => {about && setAbout(false)}} >
-            <div className={`about_text ${theme}`}>
+          <div className='blur' onClick={() => {(about && closeMedal) && setCloseMedal(true); setAbout(false)}} >
+            <div className={`about_text ${theme}`} 
+              onClick={(e) => {
+                              setCloseMedal(false)
+                              e.stopPropagation();
+               }}>
               <BsXCircleFill  className='exit_about' 
                               onClick={() => setAbout(false)}
                               />
