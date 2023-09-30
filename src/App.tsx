@@ -30,7 +30,7 @@ function App() {
   const [timeLeft, setTimeLeft] = useState(0)
   const [incorrect, setIncorrect] = useState(0)
   const [timeId, setTimeId] = useState<NodeJS.Timeout | undefined>();
-  const [theme, setTheme] = useState('grey')
+  const [theme, setTheme] = useState('dark')
   const [dropdown, setDropdown] = useState(false)
   const [about, setAbout] = useState(false)
 
@@ -140,13 +140,14 @@ function App() {
 
   return (
     <>
-      <section className={`section ${theme}`}>
-      
+      <section className={`section ${theme}` }>
       {about && (
         <>
-          <div className='blur'>
+          <div className='blur' onClick={() => {about && setAbout(false)}} >
             <div className={`about_text ${theme}`}>
-              <BsXCircleFill  className='exit_about' onClick={() => setAbout(false)} />
+              <BsXCircleFill  className='exit_about' 
+                              onClick={() => setAbout(false)}
+                              />
               <h1>Type is Fun</h1>
                 <p> Type is fun is an interactive typing 
                     practice app that enhances your skills 
