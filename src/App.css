@@ -878,6 +878,33 @@ textarea {
   color: rgb(94, 91, 91);
 }
 
+.copy_result_p::after {
+  display: none;
+  content: 'copied';
+  position: relative;
+  background: rgb(135, 133, 133);
+  padding: 0px 5px;
+  border-radius: .2rem;
+  left: 11rem;
+  bottom: 2.6rem;
+}
+
+@keyframes appear1s {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.copy_result_p:active::after {
+  display: inline-block;
+  animation: appear1s .5s ease-in-out forwards;
+  opacity: 0;
+}
+
 
 
 .result .twitter_icon{

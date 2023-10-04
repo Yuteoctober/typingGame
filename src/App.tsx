@@ -331,7 +331,7 @@ function App() {
                 {Math.ceil(((text.length - incorrect) / text.length) * 100)} %
               </span>
             </div>
-            <p>
+            <p className='copy_result_p'>
               Copy this awesome quote
               <BsStickiesFill
                 className={`copy_result ${theme}`}
