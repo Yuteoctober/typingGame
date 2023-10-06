@@ -356,7 +356,7 @@ function App() {
         </div>
         <div className="right_btm">
           <BsFillHouseHeartFill className='port'/>
-          <a href='https://yute-dev.netlify.app/'>Back to my Portfolio</a>
+          <a href='https://yute-dev.netlify.app/'> My Portfolio</a>
         </div>
       </div>
       )}
