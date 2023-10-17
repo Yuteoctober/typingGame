@@ -227,6 +227,7 @@ function App() {
         <div className={`timer_icon ${theme}`}>
           <BsClock />
         </div>
+        {!styleone && !styletwo && !stylethree && <p className='select_timer'>Select your timer below</p>}
         <div className={`timer ${theme}`}>
           <span
             style={styleone ? { backgroundColor: 'rgba(255, 255, 255, 0.534)' } : {}}
@@ -235,11 +236,11 @@ function App() {
               setStyleone(true);
               setStyletwo(false);
               setStylethree(false);
-              setTimer(10000);
-              setTimeCount(10);
+              setTimer(15000);
+              setTimeCount(15);
             }}
           >
-            10s
+            15s
           </span>
           <span
             style={styletwo ? { backgroundColor: 'rgba(255, 255, 255, 0.534)' } : {}}
@@ -248,11 +249,11 @@ function App() {
               setStyleone(false);
               setStyletwo(true);
               setStylethree(false);
-              setTimer(15000);
-              setTimeCount(15);
+              setTimer(20000);
+              setTimeCount(20);
             }}
           >
-            15s
+            20s
           </span>
           <span
             style={stylethree ? { backgroundColor: 'rgba(255, 255, 255, 0.534)' } : {}}
@@ -261,11 +262,11 @@ function App() {
               setStyleone(false);
               setStyletwo(false);
               setStylethree(true);
-              setTimer(20000);
-              setTimeCount(20);
+              setTimer(30000);
+              setTimeCount(30);
             }}
           >
-            20s
+            30s
           </span>
         </div>
       </div>

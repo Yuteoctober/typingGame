@@ -484,6 +484,27 @@ html,body
   justify-content: space-between;
 }
 
+@keyframes glowingTimer{
+  100% {
+    color: rgb(237, 237, 237);
+  }
+  50% {
+    color: rgb(112, 111, 111);
+  }
+  0%{
+    color: rgb(227, 224, 224);
+  }
+}
+
+.select_timer {
+  position: absolute;
+  white-space: nowrap;
+  top: -3.1rem;
+  left: 2.5rem;
+  font-size: 17px;
+  animation: glowingTimer 2s ease-in-out infinite;
+}
+
 .timer_icon {
   position: relative;
   font-size: 28px;
