@@ -227,7 +227,7 @@ function App() {
         <div className={`timer_icon ${theme}`}>
           <BsClock />
         </div>
-        {!styleone && !styletwo && !stylethree && <p className='select_timer'>Select your timer below</p>}
+        {!styleone && !styletwo && !stylethree && <p className='select_timer'>Select your time below</p>}
         <div className={`timer ${theme}`}>
           <span
             style={styleone ? { backgroundColor: 'rgba(255, 255, 255, 0.534)' } : {}}

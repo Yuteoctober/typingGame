@@ -499,9 +499,9 @@ html,body
 .select_timer {
   position: absolute;
   white-space: nowrap;
-  top: -3.1rem;
-  left: 2.5rem;
-  font-size: 17px;
+  top: -2.8rem;
+  left: 3rem;
+  font-size: 16px;
   animation: glowingTimer 2s ease-in-out infinite;
 }
 
