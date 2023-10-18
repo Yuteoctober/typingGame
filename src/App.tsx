@@ -119,7 +119,7 @@ function App() {
 
 
 
-  useEffect(() => { //timer countdown
+  useEffect(() => { //timer countdown set to to minus one every 1 second
      
     if (timeLeft > 0) {
       const timerId = setTimeout(() => {
