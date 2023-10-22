@@ -1117,8 +1117,3 @@ textarea {
   display: block;
 }
 
-@media screen and (orientation: landscape) {
-  .btm_part {
-    display: none;
-  }
-}
