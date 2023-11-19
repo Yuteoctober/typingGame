@@ -15,7 +15,7 @@ html,body
   height: 100vh;
   min-height: 800px;
   z-index: -5;
-  touch-action: none;
+
 }
 
 .section.dark{
